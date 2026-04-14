@@ -50,7 +50,7 @@ while(my $sample=<LIST>){
 		print OUT3 "samtools index -@ 4 $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.bam\n";
 		print OUT3 "samtools view -@ 4 $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.bam | awk '\$3!=\"chrL\"' | samtools view -@ 4 -bS -T /data/reference/1.genome/hg38/hg38.fa - > $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.genome_DNA.bam\n";
 		print OUT3 "samtools view -@ 4 $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.bam | awk '\$3==\"chrL\"' | samtools view -@ 4 -bS -T /data/reference/1.genome/lamda/lambda.fa - > $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.lamda_DNA.bam\n";
-		print OUT3 "lambda_CT_efficiency.py $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.lamda_DNA.bam\n";
+		print OUT3 "DNA_methylation/lambda_CT_efficiency.py $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.lamda_DNA.bam\n";
 		print OUT3 "samtools index -@ 4 $dir/DNA/03.mapping/$sample.bismark_bt2.filter.deduplicated.sort.genome_DNA.bam\n";
 		close(OUT3);
 
