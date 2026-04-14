@@ -90,3 +90,8 @@ The workflow for analyzing scTrio-seq2 data is shown below:
 3) Visulize CNV ratio on 22 autosomes in each library using ggplot2
 
    $ Rscript 3.plot.R
+
+## Contact
+houyu(AT)zju.edu.cn
+guohs(AT)zju.edu.cn
+ranxia(AT)zju.edu.cn
