@@ -62,6 +62,11 @@ The above workflow requires the following softwares:
    $ Rscript 3.DMR.R
    
    Note: Users need to modify group info in this script.
+4) Visulize DMR in heatmap
+
+   $ Rscript 4.heatmap
+
+   Note: Users need to modify group info in this script.
 
 **Copy number variation**
 1) Perform copy number analysis using QDNaseq in the directory where final BAM files of DNA libraries locate
