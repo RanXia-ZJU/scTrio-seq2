@@ -16,6 +16,8 @@ The workflow for analyzing scTrio-seq2 data is shown below:
 7. Copy number calling: QDNAseq
 8. Downstream analyses and visualization: R (v4.3.1), Perl (v5.26.2), or Python (v3.7.5)
 
+Users may create a conda environment as scTrio_seq2 and install the above softwares using conda.
+
 ## How to perform data analysis shown in the workflow
 1. Create a project directory and a rawdata directory in this projectory directory
 
