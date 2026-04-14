@@ -12,8 +12,9 @@ The above workflow requires the following softwares:
 3. RNA read alignment: STAR (2.7.1a)
 4. Expression quantification: RSEM (v1.3.3)
 5. Bisulfite-aware alignment and mC calling: Bismark (v0.20.0)
-6. Alignment processing: SAMtools (v1.9) for 
-7. Downstream analyses and visualization: R (v4.3.1), Perl (v5.26.2), or Python (v3.7.5)
+6. Alignment processing: SAMtools (v1.9)
+7. Copy number calling: QDNAseq
+8. Downstream analyses and visualization: R (v4.3.1), Perl (v5.26.2), or Python (v3.7.5)
 
 **How to perform data analysis shown in the workflow**
 1. Create a project directory and a rawdata directory in this projectory directory
