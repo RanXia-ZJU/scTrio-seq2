@@ -47,6 +47,20 @@ The above workflow requires the following softwares:
    $ Rscript 3.DEseq2.R
    
    Note: Users need to modify group info in this script.
+   
 **2. DNA methylation**
+1) Generate methylation matrix in the directory where mC calling output files locate
+
+   $ perl 1.mean_methylation_level.100kb_bin.pl
+
+   Note: Users need to modify sample name in this script.
+2) Examine correlation between DNA libraries
+
+   $ Rscript 2.cor.R
+3) Perform differential methylation analysis using Student's t test.
+
+   $ Rscript 3.DMR.R
+   
+   Note: Users need to modify group info in this script.
 
 **3. Copy number variation**
