@@ -43,7 +43,7 @@ Users may create a conda environment named 'scTrio_seq2' and install the above s
 
    $ cd scripts
 
-   #### shell scripts for RNA library:
+   ### shell scripts for RNA library:
    
    $ sh 1.fastqc.sample_name.sh
 
@@ -51,7 +51,7 @@ Users may create a conda environment named 'scTrio_seq2' and install the above s
 
    $ sh 3.rsem.sample_name.sh
 
-   #### shell scripts for DNA library
+   ### shell scripts for DNA library:
 
    $ sh 1.fastqc.sample_name.sh
 
