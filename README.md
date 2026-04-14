@@ -35,7 +35,7 @@ The above workflow requires the following softwares:
 5. Go to the scripts directory and execute the shell scripts sequentially.
 
 **Example downstream analyses**   
-**1. RNA expression**
+**RNA expression**
 1) Generate a file named 'sample.list' which contain sample names for all the RNA libraries, and then generate expression matrix in the directory where RSEM output files locate
 
    $ perl 1.generate_expression_matrix.pl
@@ -48,13 +48,13 @@ The above workflow requires the following softwares:
    
    Note: Users need to modify group info in this script.
    
-**2. DNA methylation**
+**DNA methylation**
 1) Generate methylation matrix in the directory where mC calling output files locate
 
    $ perl 1.mean_methylation_level.100kb_bin.pl
 
    Note: Users need to modify sample name in this script.
-2) Examine correlation between DNA libraries
+2) Examine correlation between DNA libraries based on DNA methylation levels in 100kb tiling bins.
 
    $ Rscript 2.cor.R
 3) Perform differential methylation analysis using Student's t test.
@@ -63,4 +63,16 @@ The above workflow requires the following softwares:
    
    Note: Users need to modify group info in this script.
 
-**3. Copy number variation**
+**Copy number variation**
+1) Perform copy number analysis using QDNaseq in the directory where final BAM files of DNA libraries locate
+
+   $ Rscript 1.QDNAseq.R
+   
+   Note: Users need to modify sample name in this script.
+2) Examine correlation between DNA libraries based on copy numbers
+
+   $ Rscript 2.cor.R
+
+   Note: Users need to modify sample name in this script.
+3) Visulize CNV ratio on 22 autosomes in each library using ggplot2
+   $ Rscript 3.plot.R
