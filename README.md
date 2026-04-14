@@ -6,7 +6,7 @@ This repository provides in-house programs for analyzing scTroi-seq2 data.
 The workflow for analyzing scTrio-seq2 data is shown below:
 ![workflow](https://github.com/user-attachments/assets/cdbb53c9-995a-4a09-a266-5573c1cbea6a)
 
-##The above workflow requires the following softwares:
+## The above workflow requires the following softwares:
 1. Read-quality assessment: FastQC (v0.12.1)
 2. Adaptor and quality trimming: Cutadapt (v2.10)
 3. RNA read alignment: STAR (2.7.1a)
@@ -16,7 +16,7 @@ The workflow for analyzing scTrio-seq2 data is shown below:
 7. Copy number calling: QDNAseq
 8. Downstream analyses and visualization: R (v4.3.1), Perl (v5.26.2), or Python (v3.7.5)
 
-**How to perform data analysis shown in the workflow**
+## How to perform data analysis shown in the workflow
 1. Create a project directory and a rawdata directory in this projectory directory
 
    $ mkdir project
@@ -37,8 +37,8 @@ The workflow for analyzing scTrio-seq2 data is shown below:
    This will generate a directory named 'scripts' which contain all the shell scripts to perform data analysis shown in the workflow.
 6. Go to the scripts directory and execute the shell scripts sequentially.
 
-**Example downstream analyses**   
-**RNA expression**
+## Example downstream analyses
+### RNA expression
 1) Generate a file named 'sample.list' which contain sample names for all the RNA libraries, and then generate expression matrix in the directory where RSEM output files locate
 
    $ perl 1.generate_expression_matrix.pl
@@ -56,7 +56,7 @@ The workflow for analyzing scTrio-seq2 data is shown below:
 
    Note: Users need to prepare a file with geneID as the first column and geneName as the second column, and modify the interested genes (which genes to show gene name) in the script.
    
-**DNA methylation**
+### DNA methylation
 1) Generate methylation matrix in the directory where mC calling output files locate
 
    $ perl 1.mean_methylation_level.100kb_bin.pl
@@ -76,7 +76,7 @@ The workflow for analyzing scTrio-seq2 data is shown below:
 
    Note: Users need to modify group info in this script.
 
-**Copy number variation**
+### Copy number variation
 1) Perform copy number analysis using QDNaseq in the directory where final BAM files of DNA libraries locate
 
    $ Rscript 1.QDNAseq.R
