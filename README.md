@@ -75,4 +75,5 @@ The above workflow requires the following softwares:
 
    Note: Users need to modify sample name in this script.
 3) Visulize CNV ratio on 22 autosomes in each library using ggplot2
+
    $ Rscript 3.plot.R
