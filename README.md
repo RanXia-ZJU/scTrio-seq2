@@ -93,5 +93,7 @@ The workflow for analyzing scTrio-seq2 data is shown below:
 
 ## Contact
 houyu(AT)zju.edu.cn
+
 guohs(AT)zju.edu.cn
+
 ranxia(AT)zju.edu.cn
