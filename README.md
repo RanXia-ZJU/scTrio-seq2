@@ -28,12 +28,13 @@ The above workflow requires the following softwares:
 3. Generate the 'sample.list' file which contain the sample name of the FQ files.
 
    $ ls *R1.fq.gz|sed 's/_R1.fq.gz//' > ../sample.list
-4. Put the Perl script 'pipeline.pl' in the project directory and execute
+4. Go to the project directory. Put the Perl script 'pipeline.pl' in the project directory and execute
 
+   $ cd ..
    $ perl pipeline.pl
 
    This will generate a directory named 'scripts' which contain all the shell scripts to perform data analysis shown in the workflow.
-5. Go to the scripts directory and execute the shell scripts sequentially.
+6. Go to the scripts directory and execute the shell scripts sequentially.
 
 **Example downstream analyses**   
 **RNA expression**
