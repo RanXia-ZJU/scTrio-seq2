@@ -27,17 +27,39 @@ Users may create a conda environment named 'scTrio_seq2' and install the above s
 
    $ mkdir rawdata_fq
 2. Put the FQ files in the 'rawdata_fq' directory or make soft links as {sample_name}_R1.fq.gz and {sample_name}_R2.fq.gz.
-3. Generate the 'sample.list' file which contain the sample name of the FQ files.
+
+   Note: sample name for DNA and RNA libraries may start with M_ and R_, respectively.
+4. Generate the 'sample.list' file which contain the sample name of the FQ files.
 
    $ ls *R1.fq.gz|sed 's/_R1.fq.gz//' > ../sample.list
-4. Go to the project directory. Put the Perl script 'pipeline.pl' in the project directory and execute
+5. Go to the project directory. Put the Perl script 'pipeline.pl' in the project directory and execute
 
    $ cd ..
    
    $ perl pipeline.pl
 
    This will generate a directory named 'scripts' which contain all the shell scripts to perform data analysis shown in the workflow.
-6. Go to the scripts directory and execute the shell scripts sequentially.
+6. Go to the scripts directory and execute the shell scripts sequentially for each sample.
+
+   $ cd scripts
+
+   #### shell scripts for RNA library:
+   
+   $ sh 1.fastqc.sample_name.sh
+
+   $ sh 2.cutadapt.sample_name.sh
+
+   $ sh 3.rsem.sample_name.sh
+
+   #### shell scripts for DNA library
+
+   $ sh 1.fastqc.sample_name.sh
+
+   $ sh 2.cuadapt.sample_name.sh
+
+   $ sh 3.bismark.sample_name.sh
+
+   $ sh 4.mC.sample_name.sh
 
 ## Example downstream analyses
 ### RNA expression
