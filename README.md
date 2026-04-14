@@ -50,6 +50,11 @@ The above workflow requires the following softwares:
    $ Rscript 3.DEseq2.R
    
    Note: Users need to modify group info in this script.
+4) Visulize differentially expressed genes using ggplot2
+
+   $ Rscript 4.DEG_plot.R
+
+   Note: Users need to prepare a file with geneID as the first column and geneName as the second column, and modify the interested genes (which genes to show gene name) in the script.
    
 **DNA methylation**
 1) Generate methylation matrix in the directory where mC calling output files locate
