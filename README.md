@@ -31,6 +31,7 @@ The above workflow requires the following softwares:
 4. Go to the project directory. Put the Perl script 'pipeline.pl' in the project directory and execute
 
    $ cd ..
+   
    $ perl pipeline.pl
 
    This will generate a directory named 'scripts' which contain all the shell scripts to perform data analysis shown in the workflow.
