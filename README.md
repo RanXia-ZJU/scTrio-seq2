@@ -6,7 +6,7 @@ This repository provides in-house programs for analyzing scTroi-seq2 data.
 The workflow for analyzing scTrio-seq2 data is shown below:
 ![workflow](https://github.com/user-attachments/assets/cdbb53c9-995a-4a09-a266-5573c1cbea6a)
 
-**The above workflow requires the following softwares:**
+##The above workflow requires the following softwares:
 1. Read-quality assessment: FastQC (v0.12.1)
 2. Adaptor and quality trimming: Cutadapt (v2.10)
 3. RNA read alignment: STAR (2.7.1a)
