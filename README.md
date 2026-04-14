@@ -15,4 +15,28 @@ The above workflow requires the following softwares:
 6. Alignment processing: SAMtools (v1.9) for 
 7. Downstream analyses and visualization: R (v4.3.1), Perl (v5.26.2), or Python (v3.7.5)
 
-**Quick start**
+**How to perform data analysis shown in the workflow**
+1. Create a project directory and a rawdata directory in this projectory directory
+
+   $ mkdir project
+
+   $ cd project
+
+   $ mkdir rawdata_fq
+2. Put the FQ files in the 'rawdata_fq' directory or make soft links as {sample_name}_R1.fq.gz and {sample_name}_R2.fq.gz.
+3. Generate the 'sample.list' file which contain the sample name of the FQ files.
+
+   $ ls *R1.fq.gz|sed 's/_R1.fq.gz//' > ../sample.list
+4. Put the Perl script 'pipeline.pl' in the project directory and execute
+
+   $ perl pipeline.pl
+
+   This will generate a directory named 'scripts' which contain all the shell scripts to perform data analysis shown in the workflow.
+5. Go to the scripts directory and execute the shell scripts sequentially.
+
+**Example downstream analyses**   
+**1. RNA expression**
+
+**2. DNA methylation**
+
+**3. Copy number variation**
