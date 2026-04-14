@@ -45,19 +45,29 @@ Users may create a conda environment named 'scTrio_seq2' and install the above s
 
    ### shell scripts for RNA library:
    
+   #### Quality assesment
    $ sh 1.fastqc.sample_name.sh
 
+   #### Trimming
    $ sh 2.cutadapt.sample_name.sh
 
+   #### Mapping and Quantification
    $ sh 3.rsem.sample_name.sh
 
    ### shell scripts for DNA library:
+   #### Quality assesment
 
    $ sh 1.fastqc.sample_name.sh
+   
+   #### Trimming
 
    $ sh 2.cuadapt.sample_name.sh
+   
+   #### Mapping
 
    $ sh 3.bismark.sample_name.sh
+   
+   #### mC calling
 
    $ sh 4.mC.sample_name.sh
 
