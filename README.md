@@ -36,7 +36,17 @@ The above workflow requires the following softwares:
 
 **Example downstream analyses**   
 **1. RNA expression**
+1) Generate a file named 'sample.list' which contain sample names for all the RNA libraries, and then generate expression matrix in the directory where RSEM output files locate
 
+   $ perl 1.generate_expression_matrix.pl
+2) Examine correlation between RNA libraries
+
+   $ Rscript 2.cor.R
+3) Perform differential expression analysis using DESeq2
+
+   $ Rscript 3.DEseq2.R
+   
+   Note: Users need to modify group info in this script.
 **2. DNA methylation**
 
 **3. Copy number variation**
