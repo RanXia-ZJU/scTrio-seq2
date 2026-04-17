@@ -35,8 +35,8 @@ while(my $sample=<LIST>){
 
 		open(OUT2,">scripts/2.cutadapt.$sample.sh");
 		print OUT2 "mkdir -p $dir/DNA/02.cutadapt\n";
-		print OUT2 "cutadapt --cores 2 -a R1Adaptor=AGATCGGAAGAGCACACGTCTGAAC -a polyG=G{16} $dir/rawdata_fq/$sample\_1.fq.gz 2> $dir/DNA/02.cutadapt/$sample.R1.log | cutadapt --cores 2 --report=minimal -O 6 -q 20 -u 9 -u -9 -m 30 -o $dir/DNA/02.cutadapt/$sample\_R1.trimmed.fq.gz - >> $dir/DNA/02.cutadapt/$sample.R1.log\n";
-		print OUT2 "cutadapt --cores 2 -a R2Adaptor=AGATCGGAAGAGCGTCGTGTAGGGA -a polyG=G{16} $dir/rawdata_fq/$sample\_2.fq.gz 2> $dir/DNA/02.cutadapt/$sample.R2.log | cutadapt --cores 2 --report=minimal -O 6 -q 20 -u 9 -u -9 -m 30 -o $dir/DNA/02.cutadapt/$sample\_R2.trimmed.fq.gz - >> $dir/DNA/02.cutadapt/$sample.R2.log\n";
+		print OUT2 "cutadapt --cores 2 -a R1Adaptor=AGATCGGAAGAGCACACGTCTGAAC -a polyG=G{16} $dir/rawdata_fq/$sample\_1.fq.gz 2> $dir/DNA/02.cutadapt/$sample.R1.log | cutadapt --cores 2 --report=minimal -O 6 -q 20 -u 6 -u -6 -m 30 -o $dir/DNA/02.cutadapt/$sample\_R1.trimmed.fq.gz - >> $dir/DNA/02.cutadapt/$sample.R1.log\n";
+		print OUT2 "cutadapt --cores 2 -a R2Adaptor=AGATCGGAAGAGCGTCGTGTAGGGA -a polyG=G{16} $dir/rawdata_fq/$sample\_2.fq.gz 2> $dir/DNA/02.cutadapt/$sample.R2.log | cutadapt --cores 2 --report=minimal -O 6 -q 20 -u 6 -u -6 -m 30 -o $dir/DNA/02.cutadapt/$sample\_R2.trimmed.fq.gz - >> $dir/DNA/02.cutadapt/$sample.R2.log\n";
 		close(OUT2);
 
 		open(OUT3,">scripts/3.bismark.$sample.sh");
