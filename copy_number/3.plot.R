@@ -16,52 +16,8 @@ main_theme <- theme(plot.margin = unit(c(1, 1, 1, 1), 'lines'),
                     legend.title = element_text(family='Times',size = 12,face = 'bold'))
 data=read.table("copyNumbersSmooth.1000kb.txt",header=T,sep="\t")
 chrLen=c(248956422,242193529,198295559,190214555,181538259,170805979,159345973,145138636,138394717,133797422,135086622,133275309,114364328,107043718,101991189,90338345,83257441,80373285,58617616,64444167,46709983,50818468)
-for(i in 1:nrow(data)){
-	if(data$chromosome[i]==2){
-		data$start[i]=data$start[i]+chrLen[1]
-	}else if(data$chromosome[i]==3){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]
-	}else if(data$chromosome[i]==4){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]
-	}else if(data$chromosome[i]==5){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]
-	}else if(data$chromosome[i]==6){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]
-	}else if(data$chromosome[i]==7){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]
-	}else if(data$chromosome[i]==8){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]
-	}else if(data$chromosome[i]==9){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]
-	}else if(data$chromosome[i]==10){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]
-	}else if(data$chromosome[i]==11){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]
-	}else if(data$chromosome[i]==12){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]
-	}else if(data$chromosome[i]==13){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]
-	}else if(data$chromosome[i]==14){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]
-	}else if(data$chromosome[i]==15){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]
-	}else if(data$chromosome[i]==16){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]
-	}else if(data$chromosome[i]==17){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]+chrLen[16]
-	}else if(data$chromosome[i]==18){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]+chrLen[16]+chrLen[17]
-	}else if(data$chromosome[i]==19){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]+chrLen[16]+chrLen[17]+chrLen[18]
-	}else if(data$chromosome[i]==20){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]+chrLen[16]+chrLen[17]+chrLen[18]+chrLen[19]
-	}else if(data$chromosome[i]==21){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]+chrLen[16]+chrLen[17]+chrLen[18]+chrLen[19]+chrLen[20]
-	}else if(data$chromosome[i]==22){
-		data$start[i]=data$start[i]+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8]+chrLen[9]+chrLen[10]+chrLen[11]+chrLen[12]+chrLen[13]+chrLen[14]+chrLen[15]+chrLen[16]+chrLen[17]+chrLen[18]+chrLen[19]+chrLen[20]+chrLen[21]
-	}
-}
-
+offset <- c(0, cumsum(chrLen[-length(chrLen)]))
+data$start <- data$start + offset[data$chromosome]
 chrPos=matrix(nrow=length(chrLen),ncol=4)
 chrPos[1,1]=1
 chrPos[1,2]=1
