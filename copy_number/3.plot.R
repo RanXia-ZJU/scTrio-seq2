@@ -32,7 +32,6 @@ for(i in 2:length(chrLen)){
 colnames(chrPos)=c('chr','chrStart','chrEnd','chrMid')
 chrPos=as.data.frame(chrPos)
 start=c(1, 1 + cumsum(chrLen[-length(chrLen)]))
-end=c(chrLen[1],chrLen[1]+chrLen[2])
 
 pdf("Copy_number.1000kb.all_in_one.pdf",height=6,width=10)
 p1=ggplot()+geom_bar(data=data[data$chromosome%%2==1,],aes(x=start,y=M_sample1),fill="SteelBlue",stat="identity")+geom_bar(data=data[data$chromosome%%2==0,],aes(x=start,y=M_sample1),fill="FireBrick",stat="identity")+scale_y_continuous(limits=c(-4,4))+labs(x=NULL,y="CN")+ggtitle("scTrio-seq2 sample1")+main_theme+theme(axis.text.x = element_blank())+geom_rect(data=chrPos[chrPos$chr%%2==1,],aes(xmin=chrStart,xmax=chrEnd,ymin=-Inf,ymax=-4),inherit.aes=F,fill="SteelBlue")+geom_rect(data=chrPos[chrPos$chr%%2==0,],aes(xmin=chrStart,xmax=chrEnd,ymin=-Inf,ymax=-4),inherit.aes=F,fill="FireBrick")+geom_text(data=chrPos,aes(x=chrMid,y=-4,label=chr))
