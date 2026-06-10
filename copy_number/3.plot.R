@@ -31,8 +31,7 @@ for(i in 2:length(chrLen)){
 }
 colnames(chrPos)=c('chr','chrStart','chrEnd','chrMid')
 chrPos=as.data.frame(chrPos)
-
-start=c(1,1+chrLen[1],1+chrLen[1]+chrLen[2],1+chrLen[1]+chrLen[2]+chrLen[3],1+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4],1+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5],1+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6],1+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7],1+chrLen[1]+chrLen[2]+chrLen[3]+chrLen[4]+chrLen[5]+chrLen[6]+chrLen[7]+chrLen[8])
+start=c(1, 1 + cumsum(chrLen[-length(chrLen)]))
 end=c(chrLen[1],chrLen[1]+chrLen[2])
 
 pdf("Copy_number.1000kb.all_in_one.pdf",height=6,width=10)
